@@ -20,7 +20,8 @@ param desktopName string
 @description('Application ID for Service Principal. Used for DSC scripts.')
 param appID string
 
-@description('Application Secret for Service Principal.')
+//@description('Application Secret for Service Principal.')
+@secure()
 param appSecret string
 
 @description('CSV list of default users to assign to AVD Application Group.')
@@ -34,6 +35,7 @@ param vmPrefix string
 param vmDiskType string
 param vmSize string
 param administratorAccountUserName string
+@secure()
 param administratorAccountPassword string
 param existingVNETResourceGroup string
 param existingVNETName string
@@ -147,6 +149,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = [for i in range(0, 
 
       imageReference: {
         //id: resourceId(sharedImageGalleryResourceGroup, 'Microsoft.Compute/galleries/images/versions', sharedImageGalleryName, sharedImageGalleryDefinitionname, sharedImageGalleryVersionName)
+        #disable-next-line use-resource-id-functions   // Doesn't matter
         id: '/subscriptions/${sharedImageGallerySubscription}/resourceGroups/${sharedImageGalleryResourceGroup}/providers/Microsoft.Compute/galleries/${sharedImageGalleryName}/images/${sharedImageGalleryDefinitionname}/versions/${sharedImageGalleryVersionName}'
       }
       dataDisks: []

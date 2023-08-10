@@ -24,6 +24,7 @@ resource hostpoolDiagName 'Microsoft.Insights/diagnosticSettings@2021-05-01-prev
   name: 'hostpool-diag'
   scope: hostPool
   properties: {
+    #disable-next-line use-resource-id-functions   // Doesn't matter
     workspaceId: logworkspaceId
     logs: [
       {
@@ -66,6 +67,7 @@ resource workspaceDiagName 'Microsoft.Insights/diagnosticSettings@2021-05-01-pre
   name: 'workspacepool-diag'
   scope: workspace
   properties: {
+    #disable-next-line use-resource-id-functions   // Doesn't matter
     workspaceId: logworkspaceId
     logs: [
       {
@@ -92,6 +94,7 @@ resource appGroupDiagName 'Microsoft.Insights/diagnosticSettings@2021-05-01-prev
   name: 'appgroup-diag'
   scope: appGroup
   properties: {
+    #disable-next-line use-resource-id-functions   // Doesn't matter
     workspaceId: logworkspaceId
     logs: [
       {

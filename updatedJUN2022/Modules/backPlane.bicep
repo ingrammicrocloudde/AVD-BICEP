@@ -1,11 +1,10 @@
 param location string
 
 @allowed([
-  'eastus'
-  'westus'
+  'germanynorth'
+  'germanywestcentral'
   'westeurope'
   'northeurope'
-  'uksouth'
 ])
 param workspaceLocation string
 

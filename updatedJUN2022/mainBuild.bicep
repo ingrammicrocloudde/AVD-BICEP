@@ -73,7 +73,8 @@ param defaultUsers string
 @description('Application ID for Service Principal. Used for DSC scripts.')
 param appID string
 
-@description('Application Secret for Service Principal.')
+//@description('Application Secret for Service Principal.')
+@secure()
 param appSecret string
 param vmResourceGroup string
 param vmLocation string
